@@ -1,0 +1,103 @@
+╔══════════════════════════════════════════════════════════════╗
+║              📱 BUILD APK - QUICK START                      ║
+╚══════════════════════════════════════════════════════════════╝
+
+
+┌──────────────────────────────────────────────────────────────┐
+│ EASIEST METHOD: Run Automated Script                        │
+└──────────────────────────────────────────────────────────────┘
+
+    Double-click: build-apk.bat
+
+    ✅ Generates keystore automatically
+    ✅ Creates signing config
+    ✅ Builds signed APK
+    ✅ Shows APK location
+
+
+┌──────────────────────────────────────────────────────────────┐
+│ MANUAL METHOD: 3 Commands                                   │
+└──────────────────────────────────────────────────────────────┘
+
+    1. Generate keystore (one-time):
+       cd android
+       keytool -genkey -v -keystore nlaabo-release-key.jks -keyalg RSA -keysize 2048 -validity 10000 -alias nlaabo -storepass nlaabo2024 -keypass nlaabo2024 -dname "CN=Nlaabo, OU=Nlaabo, O=Nlaabo, L=Casablanca, S=Casablanca, C=MA"
+       cd ..
+
+    2. Create android/key.properties:
+       storePassword=nlaabo2024
+       keyPassword=nlaabo2024
+       keyAlias=nlaabo
+       storeFile=nlaabo-release-key.jks
+
+    3. Build APK:
+       flutter build apk --release
+
+
+┌──────────────────────────────────────────────────────────────┐
+│ APK LOCATION                                                 │
+└──────────────────────────────────────────────────────────────┘
+
+    build\app\outputs\flutter-apk\app-release.apk
+
+
+┌──────────────────────────────────────────────────────────────┐
+│ INSTALL ON PHONE                                             │
+└──────────────────────────────────────────────────────────────┘
+
+    Method 1: USB Cable
+    -------------------
+    adb install build\app\outputs\flutter-apk\app-release.apk
+
+    Method 2: File Transfer
+    -----------------------
+    1. Copy app-release.apk to phone
+    2. Open file on phone
+    3. Allow "Install from unknown sources"
+    4. Tap Install
+
+
+┌──────────────────────────────────────────────────────────────┐
+│ KEYSTORE INFO                                                │
+└──────────────────────────────────────────────────────────────┘
+
+    Password:  nlaabo2024
+    Alias:     nlaabo
+    File:      android/nlaabo-release-key.jks
+
+    ⚠️  BACKUP THIS FILE SECURELY!
+    ⚠️  NEVER COMMIT TO GIT!
+
+
+┌──────────────────────────────────────────────────────────────┐
+│ BUILD VARIANTS                                               │
+└──────────────────────────────────────────────────────────────┘
+
+    Release (Production):
+    flutter build apk --release
+
+    Split by Architecture (Smaller):
+    flutter build apk --split-per-abi --release
+
+    App Bundle (Play Store):
+    flutter build appbundle --release
+
+
+╔══════════════════════════════════════════════════════════════╗
+║                    📚 DOCUMENTATION                          ║
+╚══════════════════════════════════════════════════════════════╝
+
+    → BUILD_GUIDE.md        - Complete build guide
+    → BUILD_APK.md          - Quick reference
+    → build-apk.bat         - Automated script
+
+
+╔══════════════════════════════════════════════════════════════╗
+║                    🎉 READY TO BUILD!                        ║
+╚══════════════════════════════════════════════════════════════╝
+
+Run: build-apk.bat
+
+Or manually:
+cd d:\Projets\Dev\footconnect\footconnect\nlaabo
+flutter build apk --release

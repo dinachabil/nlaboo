@@ -1,0 +1,7 @@
+# Supabase Edge Functions Configuration
+# This file contains settings for Edge Functions
+
+[functions]
+# Function configurations can be added here as needed
+# Example: [functions.create-match]
+# verify_jwt = true
